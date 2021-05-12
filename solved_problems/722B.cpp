@@ -1,22 +1,37 @@
-/*ou are given a text consisting of n lines. Each line contains some space-separated words, consisting of lowercase English letters.
+/*ou are given a text consisting of n lines. Each line contains some
+space-separated words, consisting of lowercase English letters.
 
-We define a syllable as a string that contains exactly one vowel and any arbitrary number (possibly none) of consonants. In English alphabet following letters are considered to be vowels: 'a', 'e', 'i', 'o', 'u' and 'y'.
+We define a syllable as a string that contains exactly one vowel and any
+arbitrary number (possibly none) of consonants. In English alphabet following
+letters are considered to be vowels: 'a', 'e', 'i', 'o', 'u' and 'y'.
 
-Each word of the text that contains at least one vowel can be divided into syllables. Each character should be a part of exactly one syllable. For example, the word "mamma" can be divided into syllables as "ma" and "mma", "mam" and "ma", and "mamm" and "a". Words that consist of only consonants should be ignored.
+Each word of the text that contains at least one vowel can be divided into
+syllables. Each character should be a part of exactly one syllable. For example,
+the word "mamma" can be divided into syllables as "ma" and "mma", "mam" and
+"ma", and "mamm" and "a". Words that consist of only consonants should be
+ignored.
 
-The verse patterns for the given text is a sequence of n integers p1, p2, ..., pn. Text matches the given verse pattern if for each i from 1 to n one can divide words of the i-th line in syllables in such a way that the total number of syllables is equal to pi.
+The verse patterns for the given text is a sequence of n integers
+p1, p2, ..., pn. Text matches the given verse pattern if for each i from 1 to n
+one can divide words of the i-th line in syllables in such a way that the total
+number of syllables is equal to pi.
 
-You are given the text and the verse pattern. Check, if the given text matches the given verse pattern.
-Input
+You are given the text and the verse pattern. Check, if the given text matches
+the given verse pattern. Input
 
-The first line of the input contains a single integer n (1 ≤ n ≤ 100) — the number of lines in the text.
+The first line of the input contains a single integer n (1 ≤ n ≤ 100) — the
+number of lines in the text.
 
-The second line contains integers p1, ..., pn (0 ≤ pi ≤ 100) — the verse pattern.
+The second line contains integers p1, ..., pn (0 ≤ pi ≤ 100) — the verse
+pattern.
 
-Next n lines contain the text itself. Text consists of lowercase English letters and spaces. It's guaranteed that all lines are non-empty, each line starts and ends with a letter and words are separated by exactly one space. The length of each line doesn't exceed 100 characters.
-Output
+Next n lines contain the text itself. Text consists of lowercase English letters
+and spaces. It's guaranteed that all lines are non-empty, each line starts and
+ends with a letter and words are separated by exactly one space. The length of
+each line doesn't exceed 100 characters. Output
 
-If the given text matches the given verse pattern, then print "YES" (without quotes) in the only line of the output. Otherwise, print "NO" (without quotes).
+If the given text matches the given verse pattern, then print "YES" (without
+quotes) in the only line of the output. Otherwise, print "NO" (without quotes).
 Examples
 Input
 Copy
@@ -70,26 +85,33 @@ in-tel
 co-de
 ch al-len-ge
 
-Since the word "ch" in the third line doesn't contain vowels, we can ignore it. As the result we get 2 syllabels in first two lines and 3 syllables in the third one.
+Since the word "ch" in the third line doesn't contain vowels, we can ignore it.
+As the result we get 2 syllabels in first two lines and 3 syllables in the third
+one.
 */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
-int i,n,j,k,a[105];
-main(){
-	cin>>n;
-	string s;
-	for(i=1;i<=n;i++){
-		cin>>a[i];
-	}
-	for(i=0;i<n+1;i++){
-		getline(cin,s);
-		for(j=0;j<s.size();j++){
-			if(s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u'||s[j]=='y'){
-				k++;
-			}
-		}
-		if(k!=a[i]){cout<<"NO"; return 0;}
-		k=0;
-	}cout<<"YES";
+int i, n, j, k, a[105];
+main() {
+  cin >> n;
+  string s;
+  for (i = 1; i <= n; i++) {
+    cin >> a[i];
+  }
+  for (i = 0; i < n + 1; i++) {
+    getline(cin, s);
+    for (j = 0; j < s.size(); j++) {
+      if (s[j] == 'a' || s[j] == 'e' || s[j] == 'i' || s[j] == 'o' ||
+          s[j] == 'u' || s[j] == 'y') {
+        k++;
+      }
+    }
+    if (k != a[i]) {
+      cout << "NO";
+      return 0;
+    }
+    k = 0;
+  }
+  cout << "YES";
 }

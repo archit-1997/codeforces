@@ -1,4 +1,6 @@
-/*You are given an integer sequence 1,2,…,n. You have to divide it into two sets A and B in such a way that each element belongs to exactly one set and |sum(A)−sum(B)|
+/*You are given an integer sequence 1,2,…,n. You have to divide it into two sets
+A and B in such a way that each element belongs to exactly one set and
+|sum(A)−sum(B)|
 
 is minimum possible.
 
@@ -67,38 +69,40 @@ In the third example you can divide the initial sequence into sets A={1,4,5}
 and B={2,3,6} so the answer is 1.
 */
 
-//Chochu Singh
+// Chochu Singh
 #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define ld long double
-#define line cout<<"-------------"<<endl;
+#define line cout << "-------------" << endl;
 #define F first
 #define S second
-#define P pair<ll,ll>
-#define PP pair<pair<ll,ll>,ll>
+#define P pair<ll, ll>
+#define PP pair<pair<ll, ll>, ll>
 #define V vector<ll>
-#define VP vector<pair<ll,ll>>
+#define VP vector<pair<ll, ll>>
 #define VS vector<string>
-#define VV vector<vector<ll>> 
-#define VVP vector<vector<pair<ll,ll>>> 
+#define VV vector<vector<ll>>
+#define VVP vector<vector<pair<ll, ll>>>
 #define pb push_back
 #define pf push_front
 #define PQ priority_queue<ll>
-#define PQ_G priority_queue<ll,vector<ll>,greater<ll>>
-#define FOR(i,a,b) for(ll i=a;i<b;i++)
-#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL);
+#define PQ_G priority_queue<ll, vector<ll>, greater<ll>>
+#define FOR(i, a, b) for (ll i = a; i < b; i++)
+#define FAST                                                                   \
+  ios_base::sync_with_stdio(false);                                            \
+  cin.tie(NULL);
 
-int main()
-{
-	FAST;
-	
-	ll n;	cin>>n;
-	
-	ll sum=((n)*(n+1))/2;
-	
-	cout<<sum%2;
-	
-	return 0;
+int main() {
+  FAST;
+
+  ll n;
+  cin >> n;
+
+  ll sum = ((n) * (n + 1)) / 2;
+
+  cout << sum % 2;
+
+  return 0;
 }

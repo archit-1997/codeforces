@@ -1,7 +1,8 @@
 /*The following problem is well-known: given integers n and m, calculate
 ,
 
-where 2n = 2·2·...·2 (n factors), and denotes the remainder of division of x by y.
+where 2n = 2·2·...·2 (n factors), and denotes the remainder of division of x by
+y.
 
 You are asked to solve the "reverse" problem. Given integers n and m, calculate
 .
@@ -51,42 +52,41 @@ Note
 
 In the first example, the remainder of division of 42 by 24 = 16 is equal to 10.
 
-In the second example, 58 is divisible by 21 = 2 without remainder, and the answer is 0.
+In the second example, 58 is divisible by 21 = 2 without remainder, and the
+answer is 0.
 */
 
-///Chochu Singh
+/// Chochu Singh
 #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 
-ll exp(ll x,ll n)
-{
-    if(n==0)
-        return 1;
-    else if(n%2==0)
-        return exp(x*x,n/2);
-    else
-        return x*exp(x*x,(n-1)/2);
+ll exp(ll x, ll n) {
+  if (n == 0)
+    return 1;
+  else if (n % 2 == 0)
+    return exp(x * x, n / 2);
+  else
+    return x * exp(x * x, (n - 1) / 2);
 }
 
-int main()
-{
-	//Fast I/O
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	
-	ll n,m;	cin>>n>>m;
-	
-	if(n>=27)
-	    cout<<m<<endl;
-	else
-	{
-	ll mod=exp(2,n);
-	//cout<<mod<<endl;
-	
-	cout<<m%mod<<endl;
-	}
-	
-	return 0;
+int main() {
+  // Fast I/O
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  ll n, m;
+  cin >> n >> m;
+
+  if (n >= 27)
+    cout << m << endl;
+  else {
+    ll mod = exp(2, n);
+    // cout<<mod<<endl;
+
+    cout << m % mod << endl;
+  }
+
+  return 0;
 }

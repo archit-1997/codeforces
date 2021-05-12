@@ -2,15 +2,21 @@
 
 integer numbers.
 
-Your task is to split this array into three parts (some of which may be empty) in such a way that each element of the array belongs to exactly one of the three parts, and each of the parts forms a consecutive contiguous subsegment (possibly, empty) of the original array.
+Your task is to split this array into three parts (some of which may be empty)
+in such a way that each element of the array belongs to exactly one of the three
+parts, and each of the parts forms a consecutive contiguous subsegment
+(possibly, empty) of the original array.
 
 Let the sum of elements of the first part be 𝑠𝑢𝑚1
-, the sum of elements of the second part be 𝑠𝑢𝑚2 and the sum of elements of the third part be 𝑠𝑢𝑚3. Among all possible ways to split the array you have to choose a way such that 𝑠𝑢𝑚1=𝑠𝑢𝑚3 and 𝑠𝑢𝑚1
+, the sum of elements of the second part be 𝑠𝑢𝑚2 and the sum of elements of the
+third part be 𝑠𝑢𝑚3. Among all possible ways to split the array you have to
+choose a way such that 𝑠𝑢𝑚1=𝑠𝑢𝑚3 and 𝑠𝑢𝑚1
 
 is maximum possible.
 
 More formally, if the first part of the array contains 𝑎
-elements, the second part of the array contains 𝑏 elements and the third part contains 𝑐
+elements, the second part of the array contains 𝑏 elements and the third part
+contains 𝑐
 
 elements, then:
 
@@ -97,64 +103,57 @@ is: [1,3],[2,1],[4]
 In the third example there is only one way to split the array: [ ],[4,1,2],[ ]
 */
 
-//Chochu Singh
+// Chochu Singh
 #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define ld long double
-#define line cout<<"-------------"<<endl;
+#define line cout << "-------------" << endl;
 #define F first
 #define S second
 
-int main()
-{
-	//Fast I/O
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	
-	ll n;	cin>>n;
-	vector<ll> v;
-	
-	for(ll i=0;i<n;i++)
-	{
-		ll num;	cin>>num;
-		v.push_back(num);
-	}
-	
-	
-	ll ans=0,l=-1,r=n,ls=0,rs=0;
-	
-	while(l<r)
-	{
-	    if(ls<rs)
-	   {
-	        l++;
-	        ls+=v[l];
-	   }
-	   else if(ls>rs)
-	   {
-	       r--;
-	       rs+=v[r];
-	   }
-	   else
-	   {
-	       ans=l;
-	       l++;
-	       r--;
-	       ls+=v[l];
-	       rs+=v[r];
-	   }
-	}
-	
-	ll sum=0;
-	cout<<ans<<endl;
-	
-	for(ll i=0;i<=ans;i++)
-	    sum+=v[i];
-	    
-    cout<<sum<<endl;
-	
-	return 0;
+int main() {
+  // Fast I/O
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  ll n;
+  cin >> n;
+  vector<ll> v;
+
+  for (ll i = 0; i < n; i++) {
+    ll num;
+    cin >> num;
+    v.push_back(num);
+  }
+
+  ll ans = 0, l = -1, r = n, ls = 0, rs = 0;
+
+  while (l < r) {
+    if (ls < rs) {
+      l++;
+      ls += v[l];
+    } else if (ls > rs) {
+      r--;
+      rs += v[r];
+    } else {
+      ans = l;
+      l++;
+      r--;
+      ls += v[l];
+      rs += v[r];
+    }
+  }
+
+  ll sum = 0;
+  cout << ans << endl;
+
+  for (ll i = 0; i <= ans; i++)
+    sum += v[i];
+
+  cout << sum << endl;
+
+  return 0;
 }
 .

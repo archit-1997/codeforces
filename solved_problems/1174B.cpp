@@ -6,12 +6,14 @@
 
 and 𝑗 (1≤𝑖,𝑗≤𝑛) such that 𝑎𝑖+𝑎𝑗 is odd, then swap 𝑎𝑖 and 𝑎𝑗
 
-    . 
+    .
 
 What is lexicographically the smallest array you can obtain?
 
 An array 𝑥
-is lexicographically smaller than an array 𝑦 if there exists an index 𝑖 such that 𝑥𝑖<𝑦𝑖, and 𝑥𝑗=𝑦𝑗 for all 1≤𝑗<𝑖. Less formally, at the first index 𝑖 in which they differ, 𝑥𝑖<𝑦𝑖
+is lexicographically smaller than an array 𝑦 if there exists an index 𝑖 such
+that 𝑥𝑖<𝑦𝑖, and 𝑥𝑗=𝑦𝑗 for all 1≤𝑗<𝑖. Less formally, at the first index 𝑖 in
+which they differ, 𝑥𝑖<𝑦𝑖
 
 Input
 
@@ -39,7 +41,7 @@ Copy
 Output
 Copy
 
-1 4 7 
+1 4 7
 
 Input
 Copy
@@ -50,7 +52,7 @@ Copy
 Output
 Copy
 
-1 1 
+1 1
 
 Note
 
@@ -58,48 +60,45 @@ In the first example, we can swap 1
 and 4 since 1+4=5, which is odd.
 */
 
-//Chochu Singh
+// Chochu Singh
 #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long int
 #define ld long double
-#define line cout<<"-------------"<<endl;
+#define line cout << "-------------" << endl;
 #define F first
 #define S second
 
-int main()
-{
-	//Fast I/O
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	
-	ll n;	cin>>n;
-	vector<ll> v;
-	
-	ll even=0,odd=0;
-	
-	for(ll i=0;i<n;i++)
-	{
-		ll num;	cin>>num;
-		if(even==0 && num%2==0)
-		    even=1;
-		if(odd==0 && num%2==1)
-		    odd=1;
-		v.push_back(num);
-	}
-	
-	if(odd==0 || even==0)
-    {
-        for(ll i=0;i<n;i++)
-            cout<<v[i]<<" ";
-    }
-    else
-    {
-        sort(v.begin(),v.end());
-        for(ll i=0;i<n;i++)
-            cout<<v[i]<<" ";
-    }
-	
-	return 0;
+int main() {
+  // Fast I/O
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  ll n;
+  cin >> n;
+  vector<ll> v;
+
+  ll even = 0, odd = 0;
+
+  for (ll i = 0; i < n; i++) {
+    ll num;
+    cin >> num;
+    if (even == 0 && num % 2 == 0)
+      even = 1;
+    if (odd == 0 && num % 2 == 1)
+      odd = 1;
+    v.push_back(num);
+  }
+
+  if (odd == 0 || even == 0) {
+    for (ll i = 0; i < n; i++)
+      cout << v[i] << " ";
+  } else {
+    sort(v.begin(), v.end());
+    for (ll i = 0; i < n; i++)
+      cout << v[i] << " ";
+  }
+
+  return 0;
 }
